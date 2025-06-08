@@ -7,6 +7,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import TestimonialCard from "./TestimonialCard";
+import tailwindStyles from "../index.css?inline";
+
 
 const TestimonialsWidget = ({projectId}) => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -25,19 +27,25 @@ const TestimonialsWidget = ({projectId}) => {
   }, [projectId]);
 
   if (loading) {
-    return <div className="animate-spin"><Loader2 className="mr-2 h-4 w-4 animate-spin" /></div>;
+    return <>
+    <style>{tailwindStyles}</style>
+    <div className="animate-spin"><Loader2 className="mr-2 h-4 w-4 animate-spin" /></div>;
+    </>
   }
   
   return (
+    <>
+    <style>{tailwindStyles}</style>
     <Carousel>
       <CarouselContent>
-      {feedbacks.map((feedback) => (
-        <TestimonialCard feedback={feedback} />
+      {feedbacks.map((feedback, index) => (
+        <TestimonialCard key={index} feedback={feedback} />
       ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
+    </>
   )
 }
 

@@ -14,11 +14,11 @@ const page = ({params} : {
         <p className="text-lg text-secondary-foreground">Embed the code in your site</p>
         <div className="mt-6 bg-blue-950 p-6 rounded-md relative">
         <code className="text-white">
-            {`<my-widget project-id="${params.projectId}"></my-widget>`}
+            {`<feedback-form project-id="${params.projectId}"></feedback-form>`}
             <br/>
             {`<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`}
         </code>
-        <CopyButton text={`${`<my-widget project-id="${params.projectId}"></my-widget>`}\n${`<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`}`} />
+        <CopyButton text={`${`<feedback-form project-id="${params.projectId}"></feedback-form>`}\n${`<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`}`} />
         </div>
         
     </div>
